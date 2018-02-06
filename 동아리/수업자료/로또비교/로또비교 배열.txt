@@ -1,0 +1,67 @@
+package Exam1;
+import java.util.*;
+
+public class ExMain {
+	//클래스 변수
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// 메소드 변수
+		int usernumbers = 0;
+		int count = 0;
+		int[] counts =  new int[6];
+		double rotto = 0.0;
+		double[] rottos = new double[6];
+		Random rannumber = new Random();
+		Scanner scanner = new Scanner(System.in);
+		
+		
+		for(int i=0; i<=5; i++)
+		{
+			count = 0;
+			System.out.print("예상하는 숫자를 입력하세요 : ");
+			usernumbers = scanner.nextInt();
+			
+			for(int j=1; j<=1000; j++)
+			{
+				int numbers = rannumber.nextInt(45)+1;
+				if(usernumbers == numbers)
+				{
+					count++;
+				}
+				else
+				{
+					continue;
+				}
+			}
+			rotto = (double)count/10;
+			
+			if(rotto >= 1)
+			{
+				System.out.println(i+"번 맞은횟수 : " + count + "(" + rotto + "%)");
+				counts[i] = count;
+				rottos[i] = rotto;
+			}
+			
+			else {
+				i--;
+			}
+		}
+		System.out.println();
+		
+		for(int i=0; i<=5; i++)
+		{
+			System.out.println(i+1+"번 " + counts[i] + "(" + rottos[i] + "%)" );
+		}
+		/*System.out.print("번호를 입력하세요 : ");
+		int number=0, number2=0;
+		number = scanner.nextInt();
+		String name;
+		name = scanner.nextLine();
+		System.out.println(number);
+		
+		number2 = Integer.valueOf(name);
+		*/
+	}
+
+}
